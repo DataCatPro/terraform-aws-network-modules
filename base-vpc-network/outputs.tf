@@ -37,3 +37,7 @@ output "public_route_table_id" {
 output "private_route_table_id" {
   value = aws_route_table.private_route_table.id
 }
+
+output "ssh_security_group_id" {
+  value = aws_security_group.allow_ssh.id
+}

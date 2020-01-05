@@ -9,6 +9,7 @@
     - Internet Gateway
     - NAT gateway
     - Route tables for public and private subnets
+    - Security group for SSH access
 
 ## Inputs
 - "project_name" : description = "A project name to associate with resources"
@@ -19,6 +20,7 @@
 - "num_private_subnets" : default = 2
 - "cidr_block" : default = "10.0.0.0/16"
 - "assign_pub_ip" : type = bool default = false
+- "ssh_cidr" : description = "CIDR block for SSH access"
 
 ## Outputs
 - "vpc_id" : value = aws_vpc.vpc.id 
@@ -29,3 +31,4 @@
 - "default_sec_group_id" : value = aws_vpc.vpc.default_security_group_id
 - "public_route_table_id" : value = aws_route_table.public_route_table.id
 - "private_route_table_id" : value = aws_route_table.private_route_table.id
+- "ssh_security_group_id" : value = aws_security_group.allow_ssh.id

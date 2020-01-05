@@ -117,3 +117,30 @@ resource "aws_route" "private_nat_route" {
     gateway_id = aws_nat_gateway.nat[0].id
   
 }
+
+##### SSH Security Group
+resource "aws_security_group" "allow_ssh" {
+    name = "${var.project_name}-allow-ssh"
+    description = "Allow SSH access"
+    vpc_id = aws_vpc.vpc.id
+    
+    ingress {
+        from_port = 22
+        to_port = 22
+        protocol = "tcp"
+        cidr_blocks = [var.ssh_cidr]
+    }
+
+    # egress {
+    #     from_port = 0
+    #     to_port = 0
+    #     protocol = "-1"
+    #     cidr_blocks = ["0.0.0.0/0"]
+    # }
+
+    tags = merge(
+        {"Name" = "${var.project_name}-allow-ssh"},
+        local.common_tags
+    )
+  
+}

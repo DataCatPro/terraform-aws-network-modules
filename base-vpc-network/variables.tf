@@ -27,3 +27,7 @@ variable "assign_pub_ip" {
     type = bool
     default = false
 }
+
+variable "ssh_cidr" {
+    description = "CIDR block for SSH access"
+}
