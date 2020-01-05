@@ -37,3 +37,13 @@ A tag of Tier is assigned to the subnets with values:
 - "public_route_table_id" : value = aws_route_table.public_route_table.id
 - "private_route_table_id" : value = aws_route_table.private_route_table.id
 - "ssh_security_group_id" : value = aws_security_group.allow_ssh.id
+
+## Reference module remotely
+To reference module remotely;
+```
+module "vpc_network" {
+  source = "git::https://github.com/DataCatPro/terraform-aws-network-modules//base-vpc-network"
+  project_name = "test-vpc-network-module"
+  terraform_project = "vpc-network"
+  ssh_cidr = "0.0.0.0/0"
+}
