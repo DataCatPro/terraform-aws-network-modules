@@ -45,5 +45,5 @@ module "vpc_network" {
   source = "git::https://github.com/DataCatPro/terraform-aws-network-modules//base-vpc-network"
   project_name = "test-vpc-network-module"
   terraform_project = "vpc-network"
-  ssh_cidr = "0.0.0.0/0"
+  ssh_cidr = "0.0.0.0/0"  # Do not use this CIDR as it opens universal access
 }
