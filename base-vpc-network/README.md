@@ -11,6 +11,11 @@
     - Route tables for public and private subnets
     - Security group for SSH access
 
+## Public and Private Subnets
+A tag of Tier is assigned to the subnets with values:
+- Public
+- Private
+
 ## Inputs
 - "project_name" : description = "A project name to associate with resources"
 - "terraform_project" : description = "Name of the Terraform project"
